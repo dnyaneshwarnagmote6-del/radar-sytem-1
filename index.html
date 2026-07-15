@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SENTINEL Radar // Arduino HC-SR04</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+
+  <header class="hud-bar">
+    <div class="brand">
+      <h1>SENTINEL RADAR</h1>
+      <span>HC&#8209;SR04 // 0&#8211;180&deg; SCAN</span>
+    </div>
+
+    <div class="hud-stats">
+      <div class="stat">
+        <div class="label">LINK</div>
+        <div class="value"><span class="conn-dot" id="connDot"></span><span id="connText">OFFLINE</span></div>
+      </div>
+      <div class="stat">
+        <div class="label">FPS</div>
+        <div class="value" id="fpsVal">60</div>
+      </div>
+      <button id="soundBtn" class="icon-btn" title="Toggle alert sound">&#128266;</button>
+      <button id="connectBtn">CONNECT ARDUINO</button>
+    </div>
+  </header>
+
+  <main class="radar-stage" id="stage">
+    <canvas id="radarCanvas"></canvas>
+
+    <div class="bracket tl"></div>
+    <div class="bracket tr"></div>
+    <div class="bracket bl"></div>
+    <div class="bracket br"></div>
+
+    <div class="readout-panel">
+      <div class="row"><span class="k">ANGLE</span><span class="v" id="angleVal">0.0&deg;</span></div>
+      <div class="row"><span class="k">DIST</span><span class="v" id="distVal">--.- cm</span></div>
+      <div class="row"><span class="k">MODE</span><span class="v" id="modeVal">SIM</span></div>
+      <div class="row"><span class="k">TARGETS</span><span class="v" id="targetVal">0</span></div>
+    </div>
+
+    <div class="status-banner" id="statusBanner">SCANNING</div>
+
+    <div class="footer-hint">WEB SERIAL REQUIRES CHROME / EDGE OVER HTTPS OR LOCALHOST &nbsp;&middot;&nbsp; FALLS BACK TO SIMULATION</div>
+  </main>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
